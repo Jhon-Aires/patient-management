@@ -9,11 +9,14 @@ dependencies:
     specifier: ^0.9.4
     version: 0.9.5
   '@radix-ui/react-dialog':
-    specifier: ^1.1.1
+    specifier: ^1.1.2
     version: 1.1.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc.0)(react@19.0.0-rc.0)
   '@radix-ui/react-dropdown-menu':
     specifier: ^2.1.1
     version: 2.1.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc.0)(react@19.0.0-rc.0)
+  '@radix-ui/react-label':
+    specifier: ^2.1.0
+    version: 2.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc.0)(react@19.0.0-rc.0)
   '@radix-ui/react-slot':
     specifier: ^1.1.0
     version: 1.1.0(@types/react@18.3.3)(react@19.0.0-rc.0)
@@ -59,9 +62,6 @@ dependencies:
   next:
     specifier: 15.0.0-canary.75
     version: 15.0.0-canary.75(react-dom@19.0.0-rc.0)(react@19.0.0-rc.0)
-  next-auth:
-    specifier: 5.0.0-beta.19
-    version: 5.0.0-beta.19(next@15.0.0-canary.75)(react@19.0.0-rc.0)
   postcss:
     specifier: ^8.4.39
     version: 8.4.47
@@ -77,6 +77,9 @@ dependencies:
   react-dom:
     specifier: 19.0.0-rc.0
     version: 19.0.0-rc.0(react@19.0.0-rc.0)
+  react-hot-toast:
+    specifier: ^2.4.1
+    version: 2.4.1(csstype@3.1.3)(react-dom@19.0.0-rc.0)(react@19.0.0-rc.0)
   server-only:
     specifier: ^0.0.1
     version: 0.0.1
@@ -101,29 +104,6 @@ packages:
   /@alloc/quick-lru@5.2.0:
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
     engines: {node: '>=10'}
-    dev: false
-
-  /@auth/core@0.32.0:
-    resolution: {integrity: sha512-3+ssTScBd+1fd0/fscAyQN1tSygXzuhysuVVzB942ggU4mdfiTbv36P0ccVnExKWYJKvu3E2r3/zxXCCAmTOrg==}
-    peerDependencies:
-      '@simplewebauthn/browser': ^9.0.1
-      '@simplewebauthn/server': ^9.0.2
-      nodemailer: ^6.8.0
-    peerDependenciesMeta:
-      '@simplewebauthn/browser':
-        optional: true
-      '@simplewebauthn/server':
-        optional: true
-      nodemailer:
-        optional: true
-    dependencies:
-      '@panva/hkdf': 1.2.1
-      '@types/cookie': 0.6.0
-      cookie: 0.6.0
-      jose: 5.9.3
-      oauth4webapi: 2.17.0
-      preact: 10.11.3
-      preact-render-to-string: 5.2.3(preact@10.11.3)
     dev: false
 
   /@emnapi/runtime@1.2.0:
@@ -915,10 +895,6 @@ packages:
       fastq: 1.17.1
     dev: false
 
-  /@panva/hkdf@1.2.1:
-    resolution: {integrity: sha512-6oclG6Y3PiDFcoyk8srjLfVKyMfVCKJ27JwNPViuXziFpmdz+MZnZN/aKY0JGXgYuO/VghU0jcOAZgWXZ1Dmrw==}
-    dev: false
-
   /@pkgjs/parseargs@0.11.0:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
@@ -1155,6 +1131,26 @@ packages:
       '@radix-ui/react-use-layout-effect': 1.1.0(@types/react@18.3.3)(react@19.0.0-rc.0)
       '@types/react': 18.3.3
       react: 19.0.0-rc.0
+    dev: false
+
+  /@radix-ui/react-label@2.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc.0)(react@19.0.0-rc.0):
+    resolution: {integrity: sha512-peLblDlFw/ngk3UWq0VnYaOLy6agTZZ+MUO/WhVfm14vJGML+xH4FAl2XQGLqdefjNb7ApRg6Yn7U42ZhmYXdw==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+      react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+    dependencies:
+      '@radix-ui/react-primitive': 2.0.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc.0)(react@19.0.0-rc.0)
+      '@types/react': 18.3.3
+      '@types/react-dom': 18.3.0
+      react: 19.0.0-rc.0
+      react-dom: 19.0.0-rc.0(react@19.0.0-rc.0)
     dev: false
 
   /@radix-ui/react-menu@2.1.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc.0)(react@19.0.0-rc.0):
@@ -1501,10 +1497,6 @@ packages:
       tslib: 2.7.0
     dev: false
 
-  /@types/cookie@0.6.0:
-    resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
-    dev: false
-
   /@types/node@20.14.10:
     resolution: {integrity: sha512-MdiXf+nDuMvY0gJKxyfZ7/6UFsETO7mGKF54MVD/ekJS6HdFtpZFBgrh6Pseu64XTb2MLyFPlbW6hj8HYRQNOQ==}
     dependencies:
@@ -1735,11 +1727,6 @@ packages:
   /commander@4.1.1:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
     engines: {node: '>= 6'}
-    dev: false
-
-  /cookie@0.6.0:
-    resolution: {integrity: sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==}
-    engines: {node: '>= 0.6'}
     dev: false
 
   /cross-spawn@7.0.3:
@@ -2085,6 +2072,14 @@ packages:
       path-scurry: 1.11.1
     dev: false
 
+  /goober@2.1.14(csstype@3.1.3):
+    resolution: {integrity: sha512-4UpC0NdGyAFqLNPnhCT2iHpza2q+RAY3GV85a/mRPdzyPQMsj0KmMMuetdIkzWRbJ+Hgau1EZztq8ImmiMGhsg==}
+    peerDependencies:
+      csstype: ^3.0.10
+    dependencies:
+      csstype: 3.1.3
+    dev: false
+
   /graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
     dev: false
@@ -2159,10 +2154,6 @@ packages:
   /jiti@1.21.6:
     resolution: {integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==}
     hasBin: true
-    dev: false
-
-  /jose@5.9.3:
-    resolution: {integrity: sha512-egLIoYSpcd+QUF+UHgobt5YzI2Pkw/H39ou9suW687MY6PmCwPmkNV/4TNjn1p2tX5xO3j0d0sq5hiYE24bSlg==}
     dev: false
 
   /js-tokens@4.0.0:
@@ -2245,27 +2236,6 @@ packages:
     hasBin: true
     dev: false
 
-  /next-auth@5.0.0-beta.19(next@15.0.0-canary.75)(react@19.0.0-rc.0):
-    resolution: {integrity: sha512-YHu1igcAxZPh8ZB7GIM93dqgY6gcAzq66FOhQFheAdOx1raxNcApt05nNyNCSB6NegSiyJ4XOPsaNow4pfDmsg==}
-    peerDependencies:
-      '@simplewebauthn/browser': ^9.0.1
-      '@simplewebauthn/server': ^9.0.2
-      next: ^14 || ^15.0.0-0
-      nodemailer: ^6.6.5
-      react: ^18.2.0 || ^19.0.0-0
-    peerDependenciesMeta:
-      '@simplewebauthn/browser':
-        optional: true
-      '@simplewebauthn/server':
-        optional: true
-      nodemailer:
-        optional: true
-    dependencies:
-      '@auth/core': 0.32.0
-      next: 15.0.0-canary.75(react-dom@19.0.0-rc.0)(react@19.0.0-rc.0)
-      react: 19.0.0-rc.0
-    dev: false
-
   /next@15.0.0-canary.75(react-dom@19.0.0-rc.0)(react@19.0.0-rc.0):
     resolution: {integrity: sha512-RJdWBrAt0CqyIEqHoz8MtJe6Mlttl8nArveh3+XTTGSCccedG+fiHWpzufgro1prVrItUAEu8yTtqENTDFLlvA==}
     engines: {node: '>=18.18.0'}
@@ -2325,10 +2295,6 @@ packages:
   /normalize-range@0.1.2:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
-    dev: false
-
-  /oauth4webapi@2.17.0:
-    resolution: {integrity: sha512-lbC0Z7uzAFNFyzEYRIC+pkSVvDHJTbEW+dYlSBAlCYDe6RxUkJ26bClhk8ocBZip1wfI9uKTe0fm4Ib4RHn6uQ==}
     dev: false
 
   /object-assign@4.1.1:
@@ -2517,27 +2483,10 @@ packages:
     resolution: {integrity: sha512-i/hbxIE9803Alj/6ytL7UHQxRvZkI9O4Sy+J3HGc4F4oo/2eQAjTSNJ0bfxyse3bH0nuVesCk+3IRLaMtG3H6w==}
     dev: false
 
-  /preact-render-to-string@5.2.3(preact@10.11.3):
-    resolution: {integrity: sha512-aPDxUn5o3GhWdtJtW0svRC2SS/l8D9MAgo2+AWml+BhDImb27ALf04Q2d+AHqUUOc6RdSXFIBVa2gxzgMKgtZA==}
-    peerDependencies:
-      preact: '>=10'
-    dependencies:
-      preact: 10.11.3
-      pretty-format: 3.8.0
-    dev: false
-
-  /preact@10.11.3:
-    resolution: {integrity: sha512-eY93IVpod/zG3uMF22Unl8h9KkrcKIRs2EGar8hwLZZDU1lkjph303V9HZBwufh2s736U6VXuhD109LYqPoffg==}
-    dev: false
-
   /prettier@3.3.3:
     resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
     engines: {node: '>=14'}
     hasBin: true
-    dev: false
-
-  /pretty-format@3.8.0:
-    resolution: {integrity: sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==}
     dev: false
 
   /prop-types@15.8.1:
@@ -2559,6 +2508,20 @@ packages:
     dependencies:
       react: 19.0.0-rc.0
       scheduler: 0.25.0-rc.0
+    dev: false
+
+  /react-hot-toast@2.4.1(csstype@3.1.3)(react-dom@19.0.0-rc.0)(react@19.0.0-rc.0):
+    resolution: {integrity: sha512-j8z+cQbWIM5LY37pR6uZR6D4LfseplqnuAO4co4u8917hBUvXlEqyP1ZzqVLcqoyUesZZv/ImreoCeHVDpE5pQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      goober: 2.1.14(csstype@3.1.3)
+      react: 19.0.0-rc.0
+      react-dom: 19.0.0-rc.0(react@19.0.0-rc.0)
+    transitivePeerDependencies:
+      - csstype
     dev: false
 
   /react-is@16.13.1:

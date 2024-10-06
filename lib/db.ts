@@ -4,7 +4,7 @@ export async function getPatients(
   search: string,
   offset: number
 ): Promise<{
-  products: any[];
+  patients: any[];
   newOffset: number | null;
   totalProducts: number;
 }> {
@@ -12,15 +12,15 @@ export async function getPatients(
     'https://63bedcf7f5cfc0949b634fc8.mockapi.io/users'
   );
 
-  if (offset === null) {
-    return { products: [], newOffset: null, totalProducts: 0 };
-  }
+  // if (offset === null) {
+  //   return { products: [], newOffset: null, totalProducts: 0 };
+  // }
 
   const moreProducts: any = [];
   let newOffset = moreProducts.length >= 5 ? offset + 5 : null;
 
   return {
-    products: await response.json(),
+    patients: await response.json(),
     newOffset,
     totalProducts: 0
   };

@@ -15,7 +15,7 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card';
-import { Patient } from '../backup/product';
+import { Patient } from './product';
 import { useRouter } from 'next/navigation';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
