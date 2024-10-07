@@ -31,3 +31,4 @@ The https://vercel.com/templates/next.js/admin-dashboard-tailwind-postgres-react
 ## Disclaimer
 Due to the time constraints, the following decisions were made:
 - Use of shadcn as a ui library for ui components instead of creating custom components, the only showcase of a custom common component is ImageUpload 
+- Use of Jotai in a surface level to manage state, this could be improved by using the tanstack-query integration with jotai 
