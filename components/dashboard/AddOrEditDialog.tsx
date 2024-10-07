@@ -3,27 +3,25 @@ import {
   DialogContent,
   DialogDescription,
   DialogHeader,
-  DialogTitle,
+  DialogTitle
 } from '@/components/ui/dialog';
-import PatientForm from '@/components/dashboard/PatientForm';
+import EditPatientForm from '@/components/dashboard/EditPatientForm';
 import { Patient } from '@/types/Patients';
+import AddPatientForm from './AddPatientForm';
 
 export default function AddOrEditDialog({
   editingPatient,
-  setEditingPatient,
+  handleCancel,
   handleSave,
   isAddingPatient
 }: {
   editingPatient: Patient | null;
-  setEditingPatient: (patient: Patient | null) => void;
+  handleCancel: () => void;
   handleSave: (patient: Patient) => void;
   isAddingPatient: boolean;
 }) {
   return (
-    <Dialog
-      open={editingPatient !== null}
-      onOpenChange={() => setEditingPatient(null)}
-    >
+    <Dialog open={editingPatient !== null} onOpenChange={handleCancel}>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
@@ -35,12 +33,15 @@ export default function AddOrEditDialog({
               : 'Make changes to patient information here.'}
           </DialogDescription>
         </DialogHeader>
-        {editingPatient && (
-          <PatientForm
+        {editingPatient && !isAddingPatient && (
+          <EditPatientForm
             patient={editingPatient}
             onSave={handleSave}
-            onCancel={() => setEditingPatient(null)}
+            onCancel={handleCancel}
           />
+        )}
+        {editingPatient && isAddingPatient && (
+          <AddPatientForm onSave={handleSave} onCancel={handleCancel} />
         )}
       </DialogContent>
     </Dialog>

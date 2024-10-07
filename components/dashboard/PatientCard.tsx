@@ -14,8 +14,6 @@ import { cn } from '@/lib/utils';
 
 const backupPatientAvatar = '/placeholder-user.jpg';
 
-const patientAvatarInitialState = () => {};
-
 export default function PatientCard({
   patient,
   expanded,

@@ -9,13 +9,17 @@ import { Patient } from '@/types/Patients';
 import PatientCard from '@/components/dashboard/PatientCard';
 import AddOrEditDialog from '@/components/dashboard/AddOrEditDialog';
 
-export function PatientManagement({ iPatients }: { iPatients: any[] }) {
-  const [patients, setPatients] = useState<Patient[]>(iPatients);
+export function PatientManagement({
+  initialPatients
+}: {
+  initialPatients: any[];
+}) {
+  const [patients, setPatients] = useState<Patient[]>(initialPatients);
   const [expandedPatient, setExpandedPatient] = useState<number | null>(null);
   const [editingPatient, setEditingPatient] = useState<Patient | null>(null);
   const [isAddingPatient, setIsAddingPatient] = useState(false);
 
-  console.log('iPatients', iPatients);
+  console.log('initialPatients', initialPatients);
 
   const handleExpand = (id: number) => {
     setExpandedPatient(expandedPatient === id ? null : id);
@@ -35,14 +39,10 @@ export function PatientManagement({ iPatients }: { iPatients: any[] }) {
       website: '',
       avatar: ''
     });
-    // , age: 0, condition: ''
   };
 
   const handleSave = (patient: Patient) => {
-    if (
-      !patient.name
-      // || patient.age <= 0 || !patient.condition
-    ) {
+    if (!patient.name) {
       toast.error('Please fill in all fields correctly');
       return;
     }
@@ -61,6 +61,11 @@ export function PatientManagement({ iPatients }: { iPatients: any[] }) {
   const handleDelete = (id: number) => {
     setPatients(patients.filter((p) => p.id !== id));
     toast.success('Patient deleted successfully');
+  };
+
+  const handleCancel = () => {
+    setEditingPatient(null);
+    setIsAddingPatient(false);
   };
 
   return (
@@ -87,7 +92,7 @@ export function PatientManagement({ iPatients }: { iPatients: any[] }) {
       <AddOrEditDialog
         editingPatient={editingPatient}
         handleSave={handleSave}
-        setEditingPatient={setEditingPatient}
+        handleCancel={handleCancel}
         isAddingPatient={isAddingPatient}
       />
     </div>

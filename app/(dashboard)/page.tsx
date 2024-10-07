@@ -12,18 +12,11 @@ export default async function ProductsPage({
 }: {
   searchParams: { q: string; offset: string };
 }) {
-  const search = searchParams.q ?? '';
-  const offset = searchParams.offset ?? 0;
-  const { patients, newOffset, totalProducts } = await getPatients(
-    search,
-    Number(offset)
-  );
-
-  console.log('patients', patients);
+  const patients = await getPatients();
 
   return (
     <Tabs defaultValue="all">
-      <PatientManagement iPatients={patients} />
+      <PatientManagement initialPatients={patients} />
     </Tabs>
   );
 }

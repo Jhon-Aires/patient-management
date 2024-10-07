@@ -1,13 +1,7 @@
+import { Patient } from '@/types/Patients';
 import 'server-only';
 
-export async function getPatients(
-  search: string,
-  offset: number
-): Promise<{
-  patients: any[];
-  newOffset: number | null;
-  totalProducts: number;
-}> {
+export async function getPatients(): Promise<Patient[]> {
   const response = await fetch(
     'https://63bedcf7f5cfc0949b634fc8.mockapi.io/users'
   );
@@ -16,16 +10,7 @@ export async function getPatients(
   //   return { products: [], newOffset: null, totalProducts: 0 };
   // }
 
-  const moreProducts: any = [];
-  let newOffset = moreProducts.length >= 5 ? offset + 5 : null;
+  const patients = (await response.json()) as Patient[];
 
-  return {
-    patients: await response.json(),
-    newOffset,
-    totalProducts: 0
-  };
-}
-
-export async function deleteProductById(id: number) {
-  // await db.delete(products).where(eq(products.id, id));
+  return patients;
 }
