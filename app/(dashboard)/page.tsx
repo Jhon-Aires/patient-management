@@ -1,17 +1,9 @@
-import { Tabs } from '@/components/ui/tabs';
-import { getPatients } from '@/lib/services/db';
+import { getPatients } from '@/lib/services/patients';
+
 import { PatientManagement } from './PatientManagement';
 
-export default async function ProductsPage({
-  searchParams
-}: {
-  searchParams: { q: string; offset: string };
-}) {
+export default async function PatientsPage() {
   const patients = await getPatients();
 
-  return (
-    <Tabs defaultValue="all">
-      <PatientManagement initialPatients={patients} />
-    </Tabs>
-  );
+  return <PatientManagement initialPatients={patients} />;
 }

@@ -33,6 +33,8 @@ export default function EditPatientForm({
     reValidateMode: 'onSubmit'
   });
 
+  const { handleSubmit, control } = form;
+
   const onSubmit: SubmitHandler<typeof initialValues> = ({
     avatar,
     description,
@@ -48,7 +50,7 @@ export default function EditPatientForm({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {formFields.map(
           ({
             controller: Controller,
@@ -59,7 +61,7 @@ export default function EditPatientForm({
           }) => (
             <FormField
               key={name}
-              control={form.control}
+              control={control}
               name={name as keyof typeof initialValues}
               render={({ field }) => (
                 <FormItem>

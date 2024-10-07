@@ -1,13 +1,14 @@
 'use client';
 
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger
 } from '@/components/ui/tooltip';
-import clsx from 'clsx';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 export function NavItem({
   href,
@@ -25,7 +26,7 @@ export function NavItem({
       <TooltipTrigger asChild>
         <Link
           href={href}
-          className={clsx(
+          className={cn(
             'flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8',
             {
               'bg-accent text-black': pathname === href

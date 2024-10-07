@@ -1,4 +1,6 @@
-import { useEffect, useMemo, useState } from 'react';
+'use client';
+
+import { useMemo } from 'react';
 import { ChevronDown, ChevronUp, Edit, X } from 'lucide-react';
 
 import { Patient } from '@/types/Patients';
