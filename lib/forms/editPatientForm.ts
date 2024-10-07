@@ -39,7 +39,7 @@ export const initialValues = {
 };
 
 export const schema = z.object({
-  name: z.string().min(1, 'Name is required'),
+  name: z.string().trim().min(1, 'Name is required'),
   description: z.string(),
   avatar: z.string()
 });
