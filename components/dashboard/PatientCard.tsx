@@ -74,7 +74,12 @@ export default function PatientCard({
         <p>{patient.description}</p>
       </CardContent>
       <CardFooter className="flex justify-end space-x-2">
-        <Button variant="outline" size="sm" onClick={() => onEdit(patient)}>
+        <Button
+          variant="outline"
+          size="sm"
+          data-testid="edit-button"
+          onClick={() => onEdit(patient)}
+        >
           <Edit className="mr-2 h-4 w-4" /> Edit
         </Button>
         <Button

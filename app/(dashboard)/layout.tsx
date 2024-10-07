@@ -133,6 +133,7 @@ function MobileNav() {
         <nav className="grid gap-6 text-lg font-medium">
           {navItems.map((item) => (
             <Link
+              key={item.label}
               href={item.href}
               className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
             >
