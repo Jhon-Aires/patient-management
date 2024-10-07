@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { formField } from '@/types/Forms';
+import ImageUpload from '@/components/ui/ImageUpload';
 
 export const formFields: formField[] = [
   {
@@ -26,6 +27,7 @@ export const formFields: formField[] = [
     name: 'avatar',
     label: 'Avatar',
     // TODO: change to file input
+    // controller: ImageUpload
     controller: Input
   }
 ];

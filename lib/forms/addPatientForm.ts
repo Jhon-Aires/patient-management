@@ -14,19 +14,25 @@ export const formFields: formField[] = [
     label: 'ID',
     controller: Input,
     controllerAttrs: {
-      placeholder: '11111111'
+      placeholder: '12345678'
     }
   },
   ...editPatientFormFields
 ];
 
-export const initialValues = {
+export const initialValues: typeof editPatientFormInitialValues & {
+  id: number | undefined;
+} = {
   ...editPatientFormInitialValues,
-  id: ''
+  id: undefined
 };
 
 export const schema = z
   .object({
-    id: z.string().min(1, 'ID is required')
+    id: z.coerce
+      .number({
+        message: 'ID must be a number'
+      })
+      .min(1, 'ID is required')
   })
   .merge(editPatientFormSchema);

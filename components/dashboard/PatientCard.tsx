@@ -48,7 +48,7 @@ export default function PatientCard({
             <img
               src={avatar}
               alt={patient.name}
-              className="h-10 w-10 rounded-full"
+              className="h-10 w-10 rounded-full object-cover"
             />
             {patient.name}
           </div>

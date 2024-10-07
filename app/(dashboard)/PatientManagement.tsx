@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
+import { useAtom } from 'jotai';
 import { Plus } from 'lucide-react';
 import { toast, Toaster } from 'react-hot-toast';
 
@@ -8,18 +9,21 @@ import { Button } from '@/components/ui/button';
 import { Patient } from '@/types/Patients';
 import PatientCard from '@/components/dashboard/PatientCard';
 import AddOrEditDialog from '@/components/dashboard/AddOrEditDialog';
+import { patientsAtom } from '@/lib/atoms/patientsAtom';
 
 export function PatientManagement({
   initialPatients
 }: {
-  initialPatients: any[];
+  initialPatients: Patient[];
 }) {
-  const [patients, setPatients] = useState<Patient[]>(initialPatients);
+  const [patients, setPatients] = useAtom(patientsAtom);
   const [expandedPatient, setExpandedPatient] = useState<number | null>(null);
   const [editingPatient, setEditingPatient] = useState<Patient | null>(null);
   const [isAddingPatient, setIsAddingPatient] = useState(false);
 
-  console.log('initialPatients', initialPatients);
+  useLayoutEffect(() => {
+    setPatients(initialPatients);
+  }, [initialPatients]);
 
   const handleExpand = (id: number) => {
     setExpandedPatient(expandedPatient === id ? null : id);
@@ -54,6 +58,7 @@ export function PatientManagement({
       setPatients(patients.map((p) => (p.id === patient.id ? patient : p)));
       toast.success('Patient updated successfully');
     }
+
     setEditingPatient(null);
     setIsAddingPatient(false);
   };

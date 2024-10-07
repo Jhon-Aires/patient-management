@@ -34,13 +34,14 @@ export default function AddPatientForm({
   const onSubmit: SubmitHandler<typeof initialValues> = ({
     avatar,
     description,
-    name
+    name,
+    id
   }) => {
     onSave({
       avatar,
       description,
       name,
-      id: 1,
+      id: Number(id),
       createdAt: new Date().toISOString(),
       website: ''
     });
@@ -57,33 +58,27 @@ export default function AddPatientForm({
             name,
             description
           }) => {
-            console.log('controllerAttrs', controllerAttrs);
-
             return (
               <FormField
                 key={name}
                 control={form.control}
                 name={name as keyof typeof initialValues}
-                render={({ field }) => {
-                  console.log('controllerAttrs', controllerAttrs);
-
-                  return (
-                    <FormItem>
-                      {label && <FormLabel>{label}</FormLabel>}
-                      <FormControl>
-                        <Controller
-                          {...field}
-                          {...controllerAttrs}
-                          className={controllerAttrs?.className}
-                        />
-                      </FormControl>
-                      {description && (
-                        <FormDescription>{description}</FormDescription>
-                      )}
-                      <FormMessage />
-                    </FormItem>
-                  );
-                }}
+                render={({ field }) => (
+                  <FormItem>
+                    {label && <FormLabel>{label}</FormLabel>}
+                    <FormControl>
+                      <Controller
+                        {...field}
+                        {...controllerAttrs}
+                        className={controllerAttrs?.className}
+                      />
+                    </FormControl>
+                    {description && (
+                      <FormDescription>{description}</FormDescription>
+                    )}
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
             );
           }
