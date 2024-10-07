@@ -12,7 +12,7 @@ const config: Config = {
   testEnvironment: 'jest-environment-jsdom',
   modulePaths: ['<rootDir>'],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1'
+    '^@/(.*)$': '<rootDir>/$1',
   },
   collectCoverageFrom: ['components/**/*.{ts,tsx}', 'lib/**/*.{ts, tsx}', 'app/**/*.{ts, tsx}', '!**/node_modules/**']
 };

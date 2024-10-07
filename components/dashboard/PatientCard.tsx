@@ -62,7 +62,6 @@ export default function PatientCard({
             {expanded ? <ChevronUp /> : <ChevronDown />}
           </Button>
         </CardTitle>
-        {/* <CardDescription>Age: {patient.age}</CardDescription> */}
       </CardHeader>
       <CardContent
         className={cn(`mb-4 overflow-hidden transition-all duration-300`, {
