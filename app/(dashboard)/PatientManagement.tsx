@@ -76,9 +76,9 @@ export function PatientManagement({
   return (
     <div className="container mx-auto p-4">
       <Toaster />
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex justify-between items-center gap-1 mb-4">
         <h1 className="text-3xl font-bold">Patient Management</h1>
-        <Button onClick={handleAdd} className="mb-4">
+        <Button onClick={handleAdd}>
           <Plus className="mr-2 h-4 w-4" /> Add Patient
         </Button>
       </div>
