@@ -27,3 +27,7 @@ The https://vercel.com/templates/next.js/admin-dashboard-tailwind-postgres-react
 ## Testing
 1. Run `npm run test`, `pnpm test`, `yarn test` or `bun test` to run the tests
 2. Run `npm run test:coverage`, `pnpm test:coverage`, `yarn test:coverage` or `bun test:coverage` to run the tests with coverage
+
+## Disclaimer
+Due to the time constraints, the following decisions were made:
+- Use of shadcn as a ui library for ui components instead of creating custom components, the only showcase of a custom common component is ImageUpload 
